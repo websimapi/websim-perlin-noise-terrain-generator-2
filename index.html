@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perlin Noise Terrain Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Perlin Noise Terrain Generator</h1>
+        <div class="controls">
+            <div>
+                <label for="gridSize">Grid Size:</label>
+                <input type="range" id="gridSize" min="1" max="10" value="5" step="1">
+                <span id="gridSizeValue">5</span>
+            </div>
+            <div>
+                <label for="amplitude">Amplitude:</label>
+                <input type="range" id="amplitude" min="0.1" max="3" value="1" step="0.1">
+                <span id="amplitudeValue">1</span>
+            </div>
+            <div>
+                <label for="frequency">Frequency:</label>
+                <input type="range" id="frequency" min="0.1" max="3" value="1" step="0.1">
+                <span id="frequencyValue">1</span>
+            </div>
+            <div>
+                <label for="octaves">Octaves:</label>
+                <input type="range" id="octaves" min="1" max="5" value="2" step="1">
+                <span id="octavesValue">2</span>
+            </div>
+            <div>
+                <label for="terrain">Terrain Type:</label>
+                <select id="terrain">
+                    <option value="heightmap">Height Map</option>
+                    <option value="colormap">Color Map</option>
+                    <option value="3d">3D Terrain</option>
+                </select>
+            </div>
+            <button id="generateBtn">Generate New Seed</button>
+        </div>
+        <div class="visualization">
+            <canvas id="terrainCanvas"></canvas>
+        </div>
+        <div class="explanation">
+            <h2>About Perlin Noise</h2>
+            <p>Perlin noise is a type of gradient noise developed by Ken Perlin in 1983. It creates natural-looking patterns by:</p>
+            <ul>
+                <li>Generating random gradient vectors at grid points</li>
+                <li>Computing dot products between gradient vectors and offset vectors</li>
+                <li>Interpolating between values using a smooth curve</li>
+            </ul>
+            <p>Perlin noise is widely used in procedural generation of terrain, textures, and other natural-looking patterns in games and computer graphics.</p>
+        </div>
+    </div>
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.152.2/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.152.2/examples/jsm/"
+        }
+    }
+    </script>
+    <script src="perlin.js"></script>
+    <script src="app.js"></script>
+<script defer src="https://static.cloudflareinsights.com/beacon.min.js/v8c78df7c7c0f484497ecbca7046644da1771523124516" integrity="sha512-8DS7rgIrAmghBFwoOTujcf6D9rXvH8xm8JQ1Ja01h9QX8EzXldiszufYa4IFfKdLUKTTrnSFXLDkUEOTrZQ8Qg==" data-cf-beacon='{"version":"2024.11.0","token":"4c6229722a6346bc8eb5cb0e5eae5d41","server_timing":{"name":{"cfCacheStatus":true,"cfEdge":true,"cfExtPri":true,"cfL4":true,"cfOrigin":true,"cfSpeedBrain":true},"location_startswith":null}}' crossorigin="anonymous"></script>
+</body>
+</html>
+
